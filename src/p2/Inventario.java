@@ -7,7 +7,6 @@ import java.util.function.Predicate;
 public class Inventario<T extends CSVSerializable & Serializable & Comparable<T>> {
     private List<T> elementos = new ArrayList<>();
 
-    // Métodos para agregar, eliminar, filtrar y ordenar
     public void agregar(T elemento) {
         elementos.add(elemento);
     }
@@ -38,7 +37,6 @@ public class Inventario<T extends CSVSerializable & Serializable & Comparable<T>
         elementos.sort(comparator);
     }
 
-    // Métodos de persistencia
     public void guardarEnArchivo(String ruta) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ruta))) {
             oos.writeObject(elementos);

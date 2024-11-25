@@ -15,19 +15,16 @@ public class Libro implements Comparable<Libro>, CSVSerializable, Serializable {
         this.categoria = categoria;
     }
 
-    // Getters y setters
     public int getId() { return id; }
     public String getTitulo() { return titulo; }
     public String getAutor() { return autor; }
     public Categoria getCategoria() { return categoria; }
 
-    // Implementación de Comparable
     @Override
     public int compareTo(Libro otro) {
         return Integer.compare(this.id, otro.id);
     }
 
-    // Métodos CSVSerializable
     @Override
     public String toCSV() {
         return id + "," + titulo + "," + autor + "," + categoria;
