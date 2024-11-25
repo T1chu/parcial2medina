@@ -39,7 +39,8 @@ public class Inventario<T extends CSVSerializable & Serializable & Comparable<T>
 
     public void guardarEnArchivo(String ruta) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ruta))) {
-            oos.writeObject(elementos);
+            oos.writeObject(elementos);  // Guardar los elementos en el archivo
+            System.out.println("Archivo guardado en: " + ruta);
         }
     }
 
@@ -55,6 +56,7 @@ public class Inventario<T extends CSVSerializable & Serializable & Comparable<T>
                 bw.write(elemento.toCSV());
                 bw.newLine();
             }
+            System.out.println("Archivo CSV guardado en: " + ruta);
         }
     }
 
